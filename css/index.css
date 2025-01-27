@@ -1880,3 +1880,232 @@ textarea.form-input::-webkit-resizer { display: none; }
   .timeline-text { max-width: 700px; }
 
 }
+
+
+/*-----------------------------------*\
+  #Global Styles
+\*-----------------------------------*/
+
+/* Custom Properties */
+:root {
+  /* Colors */
+  --color-bg-dark: hsl(240, 2%, 12%);
+  --color-bg-light: hsl(0, 0%, 98%);
+  --color-primary: hsl(45, 100%, 72%);
+  --color-secondary: hsl(45, 54%, 58%);
+  --color-gray-dark: hsl(240, 2%, 20%);
+  --color-gray-light: hsl(0, 0%, 84%);
+  --color-text-light: hsl(0, 0%, 100%);
+  --color-text-dark: hsl(0, 0%, 7%);
+
+  /* Typography */
+  --font-family: 'Poppins', sans-serif;
+  --font-size-lg: 32px;
+  --font-size-md: 18px;
+  --font-size-sm: 14px;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-bold: 600;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 32px;
+
+  /* Shadows */
+  --shadow-light: 0 2px 5px hsla(0, 0%, 0%, 0.1);
+  --shadow-medium: 0 4px 10px hsla(0, 0%, 0%, 0.15);
+  --shadow-heavy: 0 8px 20px hsla(0, 0%, 0%, 0.2);
+
+  /* Transitions */
+  --transition: 0.3s ease;
+}
+
+/*-----------------------------------*\
+  #Reset Styles
+\*-----------------------------------*/
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  background: var(--color-bg-dark);
+  color: var(--color-text-light);
+  line-height: 1.6;
+  transition: background var(--transition), color var(--transition);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*-----------------------------------*\
+  #Utility Classes
+\*-----------------------------------*/
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.grid {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.btn {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-primary);
+  color: var(--color-text-dark);
+  border-radius: var(--spacing-xs);
+  font-weight: var(--font-weight-bold);
+  transition: background var(--transition);
+}
+
+.btn:hover {
+  background: var(--color-secondary);
+}
+
+.card {
+  background: var(--color-gray-dark);
+  padding: var(--spacing-lg);
+  border-radius: var(--spacing-sm);
+  box-shadow: var(--shadow-medium);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-heavy);
+}
+
+/*-----------------------------------*\
+  #Components
+\*-----------------------------------*/
+
+/* Header */
+header {
+  background: var(--color-gray-dark);
+  padding: var(--spacing-md) 0;
+  box-shadow: var(--shadow-light);
+}
+
+header .nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .nav-links {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+header .nav-links a {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--spacing-xs);
+  transition: background var(--transition);
+}
+
+header .nav-links a:hover {
+  background: var(--color-primary);
+  color: var(--color-text-dark);
+}
+
+/* Footer */
+footer {
+  background: var(--color-gray-dark);
+  padding: var(--spacing-lg) 0;
+  text-align: center;
+  color: var(--color-gray-light);
+}
+
+footer a {
+  color: var(--color-primary);
+  transition: color var(--transition);
+}
+
+footer a:hover {
+  color: var(--color-secondary);
+}
+
+/*-----------------------------------*\
+  #Responsive Styles
+\*-----------------------------------*/
+
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  header .nav-links {
+    gap: var(--spacing-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
